@@ -15,9 +15,8 @@
   "require" : {
     "php": ">=7.0"
   },
-  "target-dir" : "mdespeuilles/WebformBundle",
   "autoload" : {
-    "psr-0" : {
+    "psr-4" : {
       "Mdespeuilles\\WebformBundle\\" : ""
     }
   },
