@@ -1,0 +1,10 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div id="main-content" class="webform">
+        <div class="content-page">
+            {{ getForm(webform.id) }}
+        </div>
+        <div class="clear"></div>
+    </div>
+{% endblock %}

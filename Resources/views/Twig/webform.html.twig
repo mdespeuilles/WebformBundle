@@ -1,0 +1,10 @@
+<div class="webform" id="webform-{{ webform.id }}">
+    <div class="response"></div>
+    {{ form(form) }}
+</div>
+
+{% if webform.useAjax %}
+    <script type="text/javascript">
+
+    </script>
+{% endif %}

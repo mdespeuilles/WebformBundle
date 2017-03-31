@@ -1,0 +1,5 @@
+webform_submit:
+    path: /oa/webform/submit/{webformId}
+    defaults: { _controller: MdespeuillesWebformBundle:Webform:submit }
+    options:
+        expose: true

@@ -1,0 +1,22 @@
+services:
+    mdespeuilles.entity.webform:
+        class: Doctrine\ORM\EntityRepository
+        factory: ["@doctrine.orm.entity_manager", getRepository]
+        arguments:
+            - Mdespeuilles\WebformBundle\Entity\Webform
+
+    mdespeuilles.entity.webform_component:
+        class: Doctrine\ORM\EntityRepository
+        factory: ["@doctrine.orm.entity_manager", getRepository]
+        arguments:
+            - Mdespeuilles\WebformBundle\Entity\WebformComponent
+
+    mdespeuilles.twig.webform:
+        class: Mdespeuilles\WebformBundle\Services\Twig\Webform
+        arguments: [ '@service_container', '@request_stack' ]
+        tags:
+            - { name: twig.extension }
+
+    mdespeuilles.webform:
+        class: Mdespeuilles\WebformBundle\Services\Webform
+        arguments: [ '@service_container', '@request_stack' ]

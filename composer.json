@@ -1,0 +1,28 @@
+{
+  "name" : "mdespeuilles/webformbundle",
+  "description" : "Webform Bundle",
+  "type" : "symfony-bundle",
+  "authors" : [{
+    "name" : "Maxence d'Espeuilles",
+    "email" : "mdespeuilles@openaccess.fr"
+  }],
+  "keywords" : [
+    "webform bundle"
+  ],
+  "license" : [
+    "MIT"
+  ],
+  "require" : {
+    "php": ">=7.0"
+  },
+  "autoload" : {
+    "psr-0" : {
+      "Mdespeuilles\\WebformBundle\\" : ""
+    }
+  },
+  "extra" : {
+    "branch-alias" : {
+      "dev-master" : "1.0-dev"
+    }
+  }
+}

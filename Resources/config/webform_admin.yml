@@ -1,0 +1,31 @@
+easy_admin:
+    design:
+        menu:
+            - label: 'Webform'
+              icon: 'paper-plane'
+              children:
+                  - { label: 'Formulaires', entity: 'Webform', icon: 'wpforms' }
+                  - { label: 'Résultats', entity: 'WebformSubmission', icon: 'list-alt' }
+    entities:
+        WebformSubmission:
+            class: Mdespeuilles\WebformBundle\Entity\WebformSubmission
+            list:
+                fields: ['id', 'webform', { property: 'data', type: 'json_array' }]
+
+        Webform:
+            class: Mdespeuilles\WebformBundle\Entity\Webform
+            form:
+                fields:
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Informations' }
+                    - { property: 'name', type: 'text' }
+                    - { property: 'submitString', type: 'text', label: 'Libéllé du bouton de soumission' }
+                    - { property: 'slug', type: 'text', label: 'Url de la page', help: 'Les url ne doivent pas comporter le / initial.' }
+                    - { property: 'confirmationMessage', label: 'Message de confirmation' }
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Composants' }
+                    - { property: 'components', type: 'collection', type_options: { entry_type: 'Mdespeuilles\WebformBundle\Form\WebformComponentType', by_reference: false } }
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Paramètres avancés' }
+                    - { property: 'useAjax', label: 'Utiliser ajax pour la soumission du formulaire' }
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Paramètres emails' }
+                    - { property: 'senderMail', label: 'Adresse email de l''expediteur' }
+                    - { property: 'emailTemplate', label: 'Template', help: 'd''email à utiliser pour envoyer les resultats' }
+                    - { property: 'mails', help: 'Adresses email où envoyer les resultats après chaque soumission.' }
