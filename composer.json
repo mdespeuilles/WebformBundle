@@ -1,5 +1,5 @@
 {
-  "name" : "mdespeuilles/webform-bundle",
+  "name" : "mdespeuilles/webformbundle",
   "description" : "Webform Bundle",
   "type" : "symfony-bundle",
   "authors" : [{
@@ -22,7 +22,7 @@
   },
   "extra" : {
     "branch-alias" : {
-      "dev-master" : "1.0-dev"
+      "dev-master" : "1.0.0-dev"
     }
   }
 }
