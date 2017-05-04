@@ -75,6 +75,13 @@ class Webform
      * @ORM\Column(name="use_ajax", type="boolean")
      */
     private $useAjax;
+    
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="use_captcha", type="boolean")
+     */
+    private $useCaptcha = 0;
 
     /**
      * @ORM\ManyToOne(targetEntity="Mdespeuilles\MailBundle\Entity\Email")
@@ -244,6 +251,20 @@ class Webform
     public function setSenderMail($senderMail)
     {
         $this->senderMail = $senderMail;
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function isUseCaptcha() {
+        return $this->useCaptcha;
+    }
+    
+    /**
+     * @param mixed $useCaptcha
+     */
+    public function setUseCaptcha($useCaptcha) {
+        $this->useCaptcha = $useCaptcha;
     }
 }
 

@@ -25,6 +25,7 @@ easy_admin:
                     - { property: 'components', type: 'collection', type_options: { entry_type: 'Mdespeuilles\WebformBundle\Form\WebformComponentType', by_reference: false } }
                     - { type: 'group', css_class: 'col-sm-6', label: 'Paramètres avancés' }
                     - { property: 'useAjax', label: 'Utiliser ajax pour la soumission du formulaire' }
+                    - { property: 'useCaptcha', label: 'Utiliser un captcha pour le formulaire' }
                     - { type: 'group', css_class: 'col-sm-6', label: 'Paramètres emails' }
                     - { property: 'senderMail', label: 'Adresse email de l''expediteur' }
                     - { property: 'emailTemplate', label: 'Template', help: 'd''email à utiliser pour envoyer les resultats' }

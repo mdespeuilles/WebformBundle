@@ -47,11 +47,13 @@ class WebformType extends AbstractType
             $builder->add($this::camelCase($component->getName()), $component->getType(), $componentOptions);
         }
 
-        $builder->add('recaptcha', EWZRecaptchaType::class, [
-            "required" => true,
-            "label" => false,
-            "mapped" => false
-        ]);
+        if ($webform->isUseCaptcha()) {
+            $builder->add('recaptcha', EWZRecaptchaType::class, [
+                "required" => true,
+                "label" => false,
+                "mapped" => false
+            ]);
+        }
         
         $builder->add('submit', SubmitType::class, [
             'label' => $webform->getSubmitString()

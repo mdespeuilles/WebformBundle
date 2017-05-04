@@ -4,8 +4,7 @@ var ajax = function (url, data) {
     req.onreadystatechange = function (aEvt) {
         if (req.readyState == 4) {
             if (req.status == 200) {
-                console.log(req.response);
-                document.querySelector('.webform .response').innerHTML = req.response;
+                document.querySelector('.webform .response').innerHTML = JSON.parse(req.response);
             }
             else {
                 console.log(req.response);
