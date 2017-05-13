@@ -5,6 +5,7 @@ var ajax = function (url, data) {
         if (req.readyState == 4) {
             if (req.status == 200) {
                 document.querySelector('.webform .response').innerHTML = JSON.parse(req.response);
+                document.querySelector(".webform form").reset();
             }
             else {
                 console.log(req.response);
