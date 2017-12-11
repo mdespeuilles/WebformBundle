@@ -81,7 +81,7 @@ class Webform
      *
      * @ORM\Column(name="use_captcha", type="boolean")
      */
-    private $useCaptcha = 0;
+    private $useCaptcha = false;
 
     /**
      * @ORM\ManyToOne(targetEntity="Mdespeuilles\MailBundle\Entity\Email")
