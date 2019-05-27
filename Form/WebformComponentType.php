@@ -2,6 +2,7 @@
 
 namespace Mdespeuilles\WebformBundle\Form;
 
+use Mdespeuilles\MarkupFieldBundle\Form\Type\MarkupType;
 use Sonata\CoreBundle\Form\Type\BooleanType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -32,7 +33,8 @@ class WebformComponentType extends AbstractType
                     'choices' => ChoiceType::class,
                     'checkbox' => CheckboxType::class,
                     'E-mail' => EmailType::class,
-                    'Texte Long' => TextareaType::class
+                    'Texte Long' => TextareaType::class,
+                    'Markup' => MarkupType::class
                 ]
             ])
             ->add('required', CheckboxType::class)

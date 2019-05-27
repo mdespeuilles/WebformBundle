@@ -5,6 +5,7 @@ namespace Mdespeuilles\WebformBundle\Form;
 use AppBundle\Entity\Webform;
 use AppBundle\Entity\WebformComponent;
 use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType;
+use Mdespeuilles\MarkupFieldBundle\Form\Type\MarkupType;
 use Sonata\CoreBundle\Form\Type\BooleanType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -39,6 +40,11 @@ class WebformType extends AbstractType
                 ],
                 'label' => $component->getName()
             ];
+            
+            if ($component->getType() == MarkupType::class) {
+                $componentOptions['label'] = false;
+                $componentOptions['markup'] = $component->getName();
+            }
 
             if ($component->isHideLabel()) {
                 $componentOptions['label'] = false;
