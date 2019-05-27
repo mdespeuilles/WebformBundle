@@ -1,0 +1,13 @@
+{% block recaptcha_submit_widget %}
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        function captchaRecaptchaSubmit(token) {
+            var formData = new FormData(form);
+            var url = form.getAttribute("action");
+            ajax(url, formData);
+        }
+    </script>
+    {% set label = button %}
+    {% set attr = attr | merge({class: 'g-recaptcha btn-default btn', 'data-sitekey': key, 'data-callback': id ~ 'RecaptchaSubmit'}) %}
+    {% block submit_widget %}{% endblock %}
+{% endblock %}

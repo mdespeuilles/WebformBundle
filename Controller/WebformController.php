@@ -44,7 +44,7 @@ class WebformController extends Controller  {
 
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
-            //if ($form->isValid()) {
+            if ($form->isValid()) {
                 $webformSubmission = new WebformSubmission();
                 $webformSubmission->setWebform($webform);
 
@@ -74,7 +74,7 @@ class WebformController extends Controller  {
                     $response->setData($webform->getConfirmationMessage());
                     return $response;
                 }
-            /*}
+            }
             else {
                 if ($webform->isUseAjax()) {
                     $errors = FormError::getErrors($form);
@@ -85,7 +85,7 @@ class WebformController extends Controller  {
                     ]);
                     return $response;
                 }
-            }*/
+            }
         }
     }
 }

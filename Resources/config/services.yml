@@ -20,3 +20,22 @@ services:
     mdespeuilles.webform:
         class: Mdespeuilles\WebformBundle\Services\Webform
         arguments: [ '@service_container', '@request_stack' ]
+
+    webformrecaptcha.type:
+        class: Mdespeuilles\WebformBundle\Form\Type\RecaptchaSubmitType
+        tags:
+            - { name: form.type }
+        arguments:
+            $key: '%mdespeuilles_webform.key%'
+
+    recaptcha.validator:
+        class: Mdespeuilles\WebformBundle\Constraints\RecaptchaValidator
+        tags:
+            - { name: validator.constraint_validator }
+        arguments: ['@request_stack', '@Recaptcha\ReCaptcha']
+        autowire: true
+
+    Recaptcha\ReCaptcha:
+        class: ReCaptcha\ReCaptcha
+        arguments:
+            $secret: '%mdespeuilles_webform.secret%'

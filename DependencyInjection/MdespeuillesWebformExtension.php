@@ -24,5 +24,8 @@ class MdespeuillesWebformExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+
+        $container->setParameter('mdespeuilles_webform.key', $config['key']);
+        $container->setParameter('mdespeuilles_webform.secret', $config['secret']);
     }
 }

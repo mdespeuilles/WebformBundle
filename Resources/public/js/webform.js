@@ -9,6 +9,10 @@ var ajax = function (url, data) {
             }
             else {
                 console.log(req.response);
+
+                if (req.status == 412) {
+                    alert('Captcha invalide');
+                }
             }
         }
     };

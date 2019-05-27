@@ -6,6 +6,7 @@ use AppBundle\Entity\Webform;
 use AppBundle\Entity\WebformComponent;
 use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType;
 use Mdespeuilles\MarkupFieldBundle\Form\Type\MarkupType;
+use Mdespeuilles\WebformBundle\Form\Type\RecaptchaSubmitType;
 use Sonata\CoreBundle\Form\Type\BooleanType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -40,7 +41,7 @@ class WebformType extends AbstractType
                 ],
                 'label' => $component->getName()
             ];
-            
+
             if ($component->getType() == MarkupType::class) {
                 $componentOptions['label'] = false;
                 $componentOptions['markup'] = $component->getName();
@@ -54,16 +55,21 @@ class WebformType extends AbstractType
         }
 
         if ($webform->isUseCaptcha()) {
-            $builder->add('recaptcha', EWZRecaptchaType::class, [
+            /*$builder->add('recaptcha', EWZRecaptchaType::class, [
                 "required" => true,
                 "label" => false,
                 "mapped" => false
+            ]);*/
+
+            $builder->add('captcha', RecaptchaSubmitType::class, [
+                'label' => $webform->getSubmitString(),
             ]);
         }
-        
-        $builder->add('submit', SubmitType::class, [
-            'label' => $webform->getSubmitString()
-        ]);
+        else {
+            $builder->add('submit', SubmitType::class, [
+                'label' => $webform->getSubmitString()
+            ]);
+        }
     }
     
     /**
@@ -73,7 +79,8 @@ class WebformType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'Mdespeuilles\WebformBundle\Entity\WebformComponent',
-            'webform' => null
+            'webform' => null,
+            "allow_extra_fields" => true
         ));
     }
 
